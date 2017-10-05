@@ -129,7 +129,7 @@ class RenameUpload extends DefaultRenameUpload
 
             $this->setTarget($target);
 
-            if (!is_dir($target)) {
+            if (! is_dir($target)) {
                 mkdir($target, 0755, true);
             }
         }
@@ -152,5 +152,4 @@ class RenameUpload extends DefaultRenameUpload
         }
         return $randomString;
     }
-
 }
