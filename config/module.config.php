@@ -4,28 +4,20 @@
  * @author Judzhin Miles <judzhin[at]gns-it.com>
  */
 
-namespace MSBios\Deploy;
+namespace MSBios\Filter;
+
+use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
 
-    //'controllers' => [
-    //    'factories' => [
-    //        Controller\IndexController::class =>
-    //            Factory\IndexControllerFactory::class,
-    //    ],
-    //],
-    //
-    //'service_manager' => [
-    //    'factories' => [
-    //        Module::class => Factory\ModuleFactory::class
-    //    ],
-    //],
-    //
-    //'view_manager' => [
-    //    'strategies' => [
-    //        'ViewJsonStrategy',
-    //    ],
-    //],
+    'filters' => [
+        'factories' => [
+            Decode\Json::class =>
+                InvokableFactory::class,
+            File\RenameUpload::class =>
+                InvokableFactory::class
+        ]
+    ],
 
     Module::class => [
 
