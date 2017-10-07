@@ -37,8 +37,16 @@
     "cs-fix": "phpcbf",
     "test": [
       "@cs-check",
-      "phpunit"
+      "phpunit --colors=always"
     ],
-    "commit": "git add . && git commit -a -m \"Lazy Composer Commiter\" && git push"
+    "commit": "git add . && git commit -a -m \"Lazy Composer Commiter\" && git push",
+    "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+    "upload-coverage": "coveralls -v"
+  },
+  "extra": {
+    "zf": {
+      "component": "MSBios\\Filter",
+      "config-provider": "MSBios\\Filter\\ConfigProvider"
+    }
   }
 }
