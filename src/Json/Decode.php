@@ -4,7 +4,7 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace MSBios\Filter\Decode;
+namespace MSBios\Filter\Json;
 
 use Zend\Filter\Exception;
 use Zend\Filter\FilterInterface;
@@ -12,11 +12,10 @@ use Zend\Json\Decoder;
 use Zend\Json\Exception\RuntimeException;
 
 /**
- * Class Json
- * @package MSBios\Filter\Decode
- * @deprecated use MSBios\Filter\Json\Decode
+ * Class Decode
+ * @package MSBios\Filter\Json
  */
-class Json implements FilterInterface
+class Decode implements FilterInterface
 {
     /**
      * Returns the result of filtering $value
