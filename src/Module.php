@@ -6,19 +6,9 @@
 
 namespace MSBios\Filter;
 
-use MSBios\Deploy\Controller\IndexController;
 use MSBios\ModuleInterface;
-use Zend\Config\Config;
-use Zend\EventManager\EventInterface;
 use Zend\Loader\AutoloaderFactory;
 use Zend\Loader\StandardAutoloader;
-use Zend\ModuleManager\Feature\BootstrapListenerInterface;
-use Zend\Router\Http\Literal;
-use Zend\Router\Http\Method;
-use Zend\Router\Http\Segment;
-use Zend\Router\Http\TreeRouteStack;
-use Zend\Router\RouteStackInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
  * Class Module
@@ -27,19 +17,15 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 class Module implements ModuleInterface
 {
     /** @const VERSION */
-    const VERSION = '1.0.7';
+    const VERSION = '1.0.8';
 
     /**
      * @return mixed
      */
     public function getConfig()
     {
-        // return include __DIR__ . '/../config/module.config.php';
-
-        $provider = new ConfigProvider;
-
         return [
-            'service_manager' => $provider->getDependencyConfig(),
+            'service_manager' => (new ConfigProvider)->getDependencyConfig(),
         ];
     }
 
