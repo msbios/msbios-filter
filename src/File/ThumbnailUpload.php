@@ -12,10 +12,10 @@ use MSBios\Imagine\GdAwareInterface;
 use MSBios\Imagine\ImagineAwareTrait;
 
 /**
- * Class ThubnailUpload
+ * Class ThumbnailUpload
  * @package MSBios\Filter\File
  */
-class ThubnailUpload extends RenameUpload implements GdAwareInterface
+class ThumbnailUpload extends RenameUpload implements GdAwareInterface
 {
     use ImagineAwareTrait;
 
