@@ -9,6 +9,7 @@ namespace MSBios\Filter\File;
 use Imagine\Image\Box;
 use Imagine\Image\BoxInterface;
 use Imagine\Image\ImageInterface;
+use Imagine\Image\ManipulatorInterface;
 use MSBios\Imagine\GdAwareInterface;
 use MSBios\Imagine\ImagineAwareTrait;
 
@@ -22,11 +23,43 @@ class ThumbnailUpload extends RenameUpload implements GdAwareInterface
 
     /** @var array */
     protected $thumbnailOptions = [
-        'width' => null,
-        'height' => null,
-        'mode' => '',
-        'filter' => ''
+        'width' => null, // size
+        'height' => null, // size
+        'mode' => ManipulatorInterface::THUMBNAIL_INSET,
+        'filter' => ImageInterface::FILTER_UNDEFINED
     ];
+
+    /**
+     * @return mixed
+     */
+    public function getWidth()
+    {
+        return $this->thumbnailOptions['width'];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHeight()
+    {
+        return $this->thumbnailOptions['height'];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMode()
+    {
+        return $this->thumbnailOptions['mode'];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFilter()
+    {
+        return $this->thumbnailOptions['filter'];
+    }
 
     /**
      * @param $options
@@ -70,18 +103,14 @@ class ThumbnailUpload extends RenameUpload implements GdAwareInterface
 
         /** @var ImageInterface $image */
         $image = $this->getImagine()->open($result['tmp_name']);
-        $image->thumbnail(
-            $box,
-            $this->thumbnailOptions['mode'],
-            $this->thumbnailOptions['filter']
-        );
+        $image->thumbnail($box, $this->getMode(), $this->getFilter());
         $image->save($path);
 
         // TODO:
         $result['thumb'] = [
             'tmp_name' => $path,
-            'width' => $this->thumbnailOptions['width'],
-            'height' => $this->thumbnailOptions['height']
+            'width' => $box->getWidth(),
+            'height' => $box->getHeight()
         ];
 
         return $result;
