@@ -7,6 +7,7 @@
 namespace MSBios\Filter\File;
 
 use Imagine\Image\Box;
+use Imagine\Image\BoxInterface;
 use Imagine\Image\ImageInterface;
 use MSBios\Imagine\GdAwareInterface;
 use MSBios\Imagine\ImagineAwareTrait;
@@ -20,7 +21,12 @@ class ThumbnailUpload extends RenameUpload implements GdAwareInterface
     use ImagineAwareTrait;
 
     /** @var array */
-    protected $thumbnailOptions;
+    protected $thumbnailOptions = [
+        'width' => null,
+        'height' => null,
+        'mode' => '',
+        'filter' => ''
+    ];
 
     /**
      * @param $options
@@ -32,6 +38,9 @@ class ThumbnailUpload extends RenameUpload implements GdAwareInterface
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function getThumbnail()
     {
         return $this->thumbnailOptions;
@@ -56,11 +65,15 @@ class ThumbnailUpload extends RenameUpload implements GdAwareInterface
         /** @var string $path */
         $path = str_replace($this->getTarget(), $thumb, $result['tmp_name']);
 
+        /** @var BoxInterface $box */
+        $box = new Box($this->thumbnailOptions['width'], $this->thumbnailOptions['height']);
+
         /** @var ImageInterface $image */
         $image = $this->getImagine()->open($result['tmp_name']);
         $image->thumbnail(
-            new Box($this->thumbnailOptions['width'], $this->thumbnailOptions['height']),
-            $this->thumbnailOptions['mode']
+            $box,
+            $this->thumbnailOptions['mode'],
+            $this->thumbnailOptions['filter']
         );
         $image->save($path);
 
