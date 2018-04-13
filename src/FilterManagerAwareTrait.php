@@ -5,6 +5,7 @@
  */
 
 namespace MSBios\Filter;
+
 use Zend\ServiceManager\PluginManagerInterface;
 
 /**
