@@ -9,24 +9,31 @@ namespace MSBios\Filter;
 use MSBios\ModuleInterface;
 use Zend\Loader\AutoloaderFactory;
 use Zend\Loader\StandardAutoloader;
+use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
+use Zend\Stdlib\ArrayUtils;
 
 /**
  * Class Module
  * @package MSBios\Filter
  */
-class Module implements ModuleInterface
+class Module implements
+    ModuleInterface,
+    AutoloaderProviderInterface
 {
     /** @const VERSION */
-    const VERSION = '1.0.13';
+    const VERSION = '1.0.14';
 
     /**
-     * @return mixed
+     * @return array
      */
     public function getConfig()
     {
-        return [
-            'service_manager' => (new ConfigProvider)->getDependencyConfig(),
-        ];
+        return ArrayUtils::merge(
+            include __DIR__ . '/../config/module.config.php',
+            [
+                'service_manager' => (new ConfigProvider)->getDependencyConfig()
+            ]
+        );
     }
 
     /**
