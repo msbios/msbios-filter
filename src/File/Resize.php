@@ -23,8 +23,8 @@ class Resize extends AbstractFilter
 
     /** @var array */
     protected $options = [
-        'width' => null,
-        'height' => null,
+        'width' => 480,
+        'height' => 320,
         'filter' => ImageInterface::FILTER_UNDEFINED
     ];
 

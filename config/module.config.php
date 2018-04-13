@@ -12,10 +12,13 @@ return [
 
     'filters' => [
         'factories' => [
-            Decode\Json::class =>
-                InvokableFactory::class,
             File\RenameUpload::class =>
-                InvokableFactory::class
+                InvokableFactory::class,
+
+            Json\Decode::class =>
+                InvokableFactory::class,
+            Json\Encoder::class =>
+                InvokableFactory::class,
         ]
     ],
 
