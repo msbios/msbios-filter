@@ -15,7 +15,7 @@ return [
             File\RenameUpload::class =>
                 InvokableFactory::class,
 
-            Json\Decode::class =>
+            Json\Decoder::class =>
                 InvokableFactory::class,
             Json\Encoder::class =>
                 InvokableFactory::class,

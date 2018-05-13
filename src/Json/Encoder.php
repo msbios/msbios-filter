@@ -7,7 +7,6 @@
 namespace MSBios\Filter\Json;
 
 use MSBios\Filter\Exception\InvalidArgumentException;
-use Zend\Filter\Exception;
 use Zend\Filter\FilterInterface;
 
 /**
@@ -17,11 +16,8 @@ use Zend\Filter\FilterInterface;
 class Encoder implements FilterInterface
 {
     /**
-     * Returns the result of filtering $value
-     *
-     * @param  mixed $value
-     * @throws Exception\RuntimeException If filtering $value is impossible
-     * @return mixed
+     * @param mixed $value
+     * @return string
      */
     public function filter($value)
     {
