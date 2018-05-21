@@ -14,11 +14,12 @@ return [
         'factories' => [
             File\RenameUpload::class =>
                 InvokableFactory::class,
-
             Json\Decoder::class =>
                 InvokableFactory::class,
             Json\Encoder::class =>
                 InvokableFactory::class,
+            BooleanToInt::class =>
+                InvokableFactory::class
         ]
     ],
 
