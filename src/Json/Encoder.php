@@ -6,7 +6,6 @@
 
 namespace MSBios\Filter\Json;
 
-use MSBios\Filter\Exception\InvalidArgumentException;
 use Zend\Filter\FilterInterface;
 
 /**
@@ -17,14 +16,15 @@ class Encoder implements FilterInterface
 {
     /**
      * @param mixed $value
-     * @return string
+     * @return mixed|string
      */
     public function filter($value)
     {
-        if (! is_array($value)) {
-            throw new InvalidArgumentException('Parameter must be array');
+
+        if (is_array($value)) {
+            $value = \Zend\Json\Encoder::encode($value);
         }
 
-        return \Zend\Json\Encoder::encode($value);
+        return $value;
     }
 }
