@@ -21,9 +21,5 @@ return [
             BooleanToInt::class =>
                 InvokableFactory::class
         ]
-    ],
-
-    Module::class => [
-        // ...
     ]
 ];
