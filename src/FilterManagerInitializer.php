@@ -3,24 +3,22 @@
  * @access protected
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
-namespace MSBios\Filter\Initializer;
+namespace MSBios\Filter;
 
 use Interop\Container\ContainerInterface;
-use MSBios\Filter\FilterManagerAwareInterface;
 use Zend\ServiceManager\Initializer\InitializerInterface;
 
 /**
  * Class FilterManagerInitializer
- * @package MSBios\Filter\Initializer
+ * @package MSBios\Filter
  */
 class FilterManagerInitializer implements InitializerInterface
 {
     /**
-     * Initialize the given instance
+     * @inheritdoc
      *
-     * @param  ContainerInterface $container
-     * @param  object $instance
-     * @return void
+     * @param ContainerInterface $container
+     * @param object $instance
      */
     public function __invoke(ContainerInterface $container, $instance)
     {
@@ -32,6 +30,8 @@ class FilterManagerInitializer implements InitializerInterface
     }
 
     /**
+     * @inheritdoc
+     *
      * @param $an_array
      * @return FilterManagerInitializer
      */

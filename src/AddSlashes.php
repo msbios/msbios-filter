@@ -9,19 +9,24 @@ namespace MSBios\Filter;
 use Zend\Filter\FilterInterface;
 
 /**
- * Class BooleanToInt
+ * Class AddSlashes
  * @package MSBios\Filter
  */
-class BooleanToInt implements FilterInterface
+class AddSlashes implements FilterInterface
 {
     /**
      * @inheritdoc
      *
      * @param mixed $value
-     * @return int|mixed
+     * @return mixed|string
      */
     public function filter($value)
     {
-        return $value ? 1 : 0;
+        // Do not filter non-string values
+        if (! is_string($value)) {
+            return $value;
+        }
+
+        return addslashes((string) $value);
     }
 }

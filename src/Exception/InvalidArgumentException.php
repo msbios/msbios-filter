@@ -14,5 +14,5 @@ use Zend\Filter\Exception\InvalidArgumentException as DefaultInvalidArgumentExce
  */
 class InvalidArgumentException extends DefaultInvalidArgumentException
 {
-
+    // ...
 }

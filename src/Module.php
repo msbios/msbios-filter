@@ -15,7 +15,7 @@ use Zend\Stdlib\ArrayUtils;
 class Module extends \MSBios\Module
 {
     /** @const VERSION */
-    const VERSION = '1.0.18';
+    const VERSION = '1.0.19';
 
     /**
      * @inheritdoc
@@ -47,8 +47,8 @@ class Module extends \MSBios\Module
         return ArrayUtils::merge(
             parent::getConfig(),
             [
-                    'service_manager' => (new ConfigProvider)->getDependencyConfig()
-                ]
+            'service_manager' => (new ConfigProvider)->getDependencyConfig()
+            ]
         );
     }
 }

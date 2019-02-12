@@ -6,6 +6,8 @@
 
 namespace MSBios\Filter;
 
+use MSBios\Factory\ModuleFactory;
+
 /**
  * Class ConfigProvider
  * @package MSBios\Filter
@@ -33,7 +35,7 @@ class ConfigProvider
     {
         return [
             'factories' => [
-                Module::class => Factory\ModuleFactory::class
+                Module::class => ModuleFactory::class
             ],
         ];
     }
