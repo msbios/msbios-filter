@@ -12,12 +12,17 @@ return [
 
     'filters' => [
         'factories' => [
+
+            // files
             File\RenameUpload::class =>
                 InvokableFactory::class,
+
+            // json
             Json\Decoder::class =>
                 InvokableFactory::class,
             Json\Encoder::class =>
                 InvokableFactory::class,
+
             BooleanToInt::class =>
                 InvokableFactory::class
         ]

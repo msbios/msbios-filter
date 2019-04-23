@@ -24,7 +24,7 @@
     }
   },
   "require": {
-    "zendframework/zend-filter": "^2.7",
+    "zendframework/zend-filter": "^2.9",
     "zendframework/zend-math": "^3.2",
     "msbios/json": "^1.0",
     "msbios/imagine": "^1.0"
